@@ -1,0 +1,25 @@
+用到 Array.prototype.slice.call()
+
+function test(a, b, c, d) { 
+    var arg = Array.prototype.slice.call(arguments, 1); 
+    alert(arg); 
+} 
+test("a","b","c","d"); //expect： b,c,d
+
+借用array的slice方法，对arguments这样的类数组对象进行操作。
+当然，也可以使用 [].slice.call(arguments, 1); 或将arguments用Array.from提取到数组后操作。
+
+call之后跟一个一个的参数，而apply需要的是一个数组形式。
+call/apply/bind 用来改变this指向。
+从而可以某个对象(类)使用其他对象(类)的方法等。
+
+call/apply可以用于继承，与prototype继承有一定区别。
+
+function A() {};
+function B() {};
+
+B.prototype = new A(); // B的prototype等于A的实例，从而实现B对A的继承
+
+1. call和apply可以实现多继承，一个子类可以继承多个父类，但是prototype只能有有一个父类；
+2. call和apply，可以简单理解为在子运行环境中执行父类的方法和属性；
+3. prototype可以动态的给对象增加属性和方法，并且同时修改到子类；
