@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jquery</title>
+  <link rel="stylesheet" href="../reset.css">
+</head>
+
+<body>
+  <h1>hello jquery!</h1>
+  <div id="app">
+    <span>span</span>
+    <span>span</span>
+    <span>span</span>
+  </div>
+  <script src="./jQuery-3.4.0.js"></script>
+  <script>
+    // 1. $(document).ready(fn)
+    // 2. $().ready(fn)
+    // 3. $(fn)
+    jQuery(function () {
+      console.log('jQuery().ready')
+      // ready like window.onload
+      // onload 必须等待网页全部加载完毕（包括图片等），然后再执行JS代码
+      // onload 在页面的元素全部加载完了才触发的,这也包括页面上的图片，以及大的表格数据。如果页面上图片较多或图片太大,加载需要较多时间，就会导致页面无响应
+
+      // eady()则是在页面的dom(节点)加载完后就可以做相应的操作,而不用等待全部元素加载完成.
+      // 比如只知道页面某处有一张图片，而不一定要等它显示出来就可以为它绑定点击方法
+
+      jQuery('#app span').css('color', 'deeppink')
+    })
+
+    jQuery.noConflict()
+    // 让出 $ 符号
+    // 也可用下面的方式重新定义jquery
+    // var jq = jQuery.noConflict()
+  </script>
+</body>
+
+</html>
